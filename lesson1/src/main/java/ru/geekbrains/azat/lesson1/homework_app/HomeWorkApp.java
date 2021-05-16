@@ -1,7 +1,5 @@
 package ru.geekbrains.azat.lesson1.homework_app;
 
-//import java.lang.System;
-
 public class HomeWorkApp {
     public static void main (String[] args) {
         printThreeWords("Orange");
