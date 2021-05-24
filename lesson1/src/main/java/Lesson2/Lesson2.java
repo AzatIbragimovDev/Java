@@ -4,9 +4,9 @@ public class Lesson2 {
     public static void main(String[] args) {
         CheckEquality(11, 10);
         CheckNumber(3);
-        CheckNumber2(-5);
+        System.out.println(CheckNumber2(10));
         printWords("Hi man", 5);
-        CheckYear(400);
+        System.out.println(CheckYear(6231));
 
     }
 
@@ -22,9 +22,10 @@ public class Lesson2 {
             System.out.println("Число " + a + " -положительное");
     }
 
-    public static void CheckNumber2(int a) {
+    public static boolean CheckNumber2(int a) {
         boolean check = a < 0;
-        System.out.println(check);
+        return check;
+
     }
 
     public static void printWords(String str, int a) {
@@ -33,18 +34,23 @@ public class Lesson2 {
         }
     }
 
-    public static void CheckYear(int year) {
-        boolean checkEquality1 = (year % 4 == 0);
-        boolean checkEquality2 = ((year % 100) == 0);
-        boolean checkEquality3 = (year % 400 == 0);
-        if (checkEquality1 && !checkEquality2 || checkEquality3)
-            System.out.println("true");
+    public static boolean CheckYear(int year) {
+        boolean checkEquality1 = (year % 4 == 0 && year % 100 ==0 && year % 400 ==0);
+        boolean checkEquality2 = (year % 4 == 0 && year % 100 == 0);
+        boolean checkEquality3 = (year % 4 == 0);
+        boolean checkEquality4 = (year % 2 != 0);
+        boolean checkEquality = false;
+        if (checkEquality1) {
+            checkEquality = checkEquality1;
+                if (checkEquality2) {
+                    checkEquality = checkEquality2;
+                        if (checkEquality3) {
+                            checkEquality = checkEquality3;
+                        }
+            }
 
-        else if (checkEquality2)
-            System.out.println("false");
-        else System.out.println("false");
-
-
+        }
+        return checkEquality;
     }
 }
 
