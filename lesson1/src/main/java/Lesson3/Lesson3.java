@@ -3,21 +3,20 @@ package Lesson3;
 public class Lesson3 {
 
     public static void main(String[] args) {
-        //replacingArrayNumbers ();
-        //fillingArray();
-        //arrayMultiplyTwo();
-        //twoDimArray();
-        for (int i = 0; i < returnArray().length; i++) {
-        System.out.println("[" + i + "] => " + returnArray());
-        }
-
-
+        replacingArrayNumbers ();
+        fillingArray();
+        arrayMultiplyTwo();
+        twoDimArray();
+        int [] arr = returnArray(6, 2);
+        printArray(arr);
+        minMaxNumbersArray();
 
 
     }
-
-    public static void printArray() {
-
+    public static void printArray(int [] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("[" + i + "] => " + arr[i]);
+        }
     }
     static public void replacingArrayNumbers () {
         int array[] = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
@@ -61,29 +60,29 @@ public class Lesson3 {
         }
     }
 
-    static int[] returnArray() {
-        int len = 5;
-        int initialValue = 1;
-        int [] arr1 = new int [len];
-        for(int i = 0; i < arr1.length; i++) {
-            arr1[i] = initialValue;
+    static int[] returnArray(int len, int initialValue) {
+        int [] arr = new int [len];
+        for(int i = 0; i < arr.length; i++) {
+            arr[i] = initialValue;
         }
-        return arr1;
+        return arr;
     }
     static public void minMaxNumbersArray() {
-
-        int[] arr = {1, 4, 10, 12, 3};
+        int max = 0;
+        int min = 0;
+        int[] arr = {-7, 4, 10, -12, 3};
         for(int i = 0; i < arr.length; i++) {
+            if (min > arr[i]) {
+                min = arr[i];
+            }
+            if (max < arr[i]) {
+                max = arr[i];
+            }
 
         }
-
+        System.out.println("max = " + max + " min = " + min);
     }
-
-
-
 }
-    
-
 
 
 
