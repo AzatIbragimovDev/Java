@@ -3,13 +3,13 @@ package Lesson3;
 public class Lesson3 {
 
     public static void main(String[] args) {
-        replacingArrayNumbers ();
-        fillingArray();
-        arrayMultiplyTwo();
+       // replacingArrayNumbers ();
+       // fillingArray();
+       // arrayMultiplyTwo();
         twoDimArray();
         int [] arr = returnArray(6, 2);
-        printArray(arr);
-        minMaxNumbersArray();
+       // printArray(arr);
+       // minMaxNumbersArray();
 
 
     }
@@ -48,9 +48,7 @@ public class Lesson3 {
         int arr [][] = new int [5][5];
         for(int i =0; i < arr.length; i++) {
             for( int j = 0; j < arr.length; j++) {
-                if (arr[i] == arr[j]) {
-                    arr[i][j] = 1;
-                } else if ((i + j) == 4) {
+                if (i == j || (i + j) == 4) {
                     arr[i][j] = 1;
                 }
             System.out.print(arr[i][j]);
