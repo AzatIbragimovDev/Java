@@ -5,12 +5,16 @@ import java.util.Scanner;
 
  public class TicTacToe {
     static final char EMPTY_CELL_SYMBOL = '_';
+    static int size =5;
     public static void start() {
-        int size =3;
+
         char[][] field = {
-                {EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL},
-                {EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL},
-                {EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL}
+                {EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL},
+                {EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL},
+                {EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL},
+                {EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL},
+                {EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL, EMPTY_CELL_SYMBOL}
+
         };
 
         drawField(field);
@@ -58,10 +62,9 @@ import java.util.Scanner;
         return !isNotEmptyCell(field, v, h);
     }
     static boolean isWin(char[][] field, char sign, int size) {
-        return (isWinHorizontal(field, sign, size) || isWinVertical(field, sign, size) || isWinDiagonal(field, sign, size));
+        return (isWinHorizontal(field, sign) || isWinVertical(field, sign) || isWinDiagonal(field, sign) || isWinDiagonal2(field, sign, size));
     }
-
-        static boolean isWinHorizontal(char[][] field, char sign,int size) {
+        static boolean isWinHorizontal(char[][] field, char sign) {
             //horizontal
             for (int i = 0; i < field.length; i++) {
                 boolean result = true;
@@ -77,7 +80,7 @@ import java.util.Scanner;
             }
             return false;
         }
-        static boolean isWinVertical(char[][] field, char sign,int size) {
+        static boolean isWinVertical(char[][] field, char sign) {
             for (int i = 0; i < field.length; i++) {
                 boolean result = true;
                 for (int j = 0; j < field.length; j++) {
@@ -92,40 +95,25 @@ import java.util.Scanner;
             }
             return false;
             }
-     static boolean isWinDiagonal(char[][] field, char sign,int size) {
-         int result = 0;
+     static boolean isWinDiagonal(char[][] field, char sign) {
+         int res = 0 ;
          for (int i = 0; i < field.length; i++) {
-             for (int j = 0; j < field.length; j++) {
-                 if(field[i][j] == sign) {
-                     result++;
-                     break;
+             if(field[i][i] == sign) {
+                     res++;
                  }
-             }
-         }
-         boolean res = (result == field.length);
-         return res;
+         } boolean result = (res == field.length);
+         return result;
     }
-        /*static boolean isWinDioganal(char[][] field, char sign,int size, int size2) {
-            if (field[0][0] == sign && field[1][1] == sign && field[2][2] == sign) {
-                return true;
-        }*/
-         //vertical
-
-            //vertical
-            /*for (int i = 0; i < field.length; i++) {
-                if (field[0][i] == sign && field[1][i] == sign && field[2][i] == sign) {
-                    return true;
-                }
+    static boolean isWinDiagonal2(char[][] field, char sign, int size) {
+        int res = 0;
+        for (int i = 0; i < field.length; i++) {
+            int j = (size - (i + 1));
+            if(field[i][j] == sign) {
+                res++;
             }
-            //diagonal
-            if (field[0][0] == sign && field[1][1] == sign && field[2][2] == sign) {
-                    return true;
-            }
-            if (field[0][2] == sign && field[1][1] == sign && field[2][0] == sign) {
-                    return true;
-            }*/
-
-
+        } boolean result = (res == field.length);
+        return  result;
+    }
         static void playerMove(char[][] field) {
             int v, h;
             do {
@@ -137,15 +125,15 @@ import java.util.Scanner;
         static void computerMove(char[][] field) {
             int v, h;
             do {
-                v = generateRandom();
-                h = generateRandom();
+                v = generateRandom(size);
+                h = generateRandom(size);
             } while (isNotEmptyCell(field, v, h));
             field[v][h] = '0';
         }
 
-        static int generateRandom() {
+        static int generateRandom(int size) {
             Random rand = new Random();
-            return rand.nextInt(3);
+            return rand.nextInt(size);
 
     }
         static void drawField(char[][] field) {
