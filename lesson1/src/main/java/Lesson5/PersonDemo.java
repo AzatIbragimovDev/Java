@@ -3,8 +3,8 @@ package Lesson5;
 public class PersonDemo {
     public static void main(String[] args) {
 
-        Employee pers1 = new Employee("Azat Ibragimov", "engineer", "mail@inbox.ru",  89030615, 50, 33);
-        pers1.printPerson();
+        Employee pers = new Employee("Azat Ibragimov", "engineer", "mail@inbox.ru",  89030615, 50, 33);
+        pers.printPerson();
 
         Employee[] persons = new Employee[5];
         persons[0] = new Employee("Ivanov Ivan", "carrier", "mailbox@mail.ru", 5437623, 25.500, 28);
@@ -13,9 +13,14 @@ public class PersonDemo {
         persons[3] = new Employee("Dzebisov Aleksandr", "manager", "Dzebisov@mail.ru", 542156, 42.400, 55);
         persons[4] = new Employee("Vakin Denis", "director", "Vakin@mail.ru", 575533, 21.300, 34);
 
-        Employee.searchPersonsOld40(persons);
-        }
+            for (int i = 0; i < persons.length; i++) {
+                if(persons[i].getAge() >= 40) {
+                    persons[i].printPerson();
+                }
+            }
     }
+}
+
 
 
 

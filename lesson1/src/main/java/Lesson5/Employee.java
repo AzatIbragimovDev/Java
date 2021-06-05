@@ -16,21 +16,11 @@ public class Employee {
         this.pay = pay;
         this.age = age;
     }
+    public int getAge() {
+        return age;
+    }
     public void printPerson() {
-        this.fullName = fullName;
-        this.post = post;
-        this. email = email;
-        this.telNumber = telNumber;
-        this.pay = pay;
-        this.age = age;
         System.out.printf("Name person: " + fullName  +  "%nPost: " + post + "%nEmail: " + email + "%nTellNumber: " + telNumber + "%nPay: " + pay + "%nAge: " + age + "%n");
     }
-    public static void searchPersonsOld40(Employee[] persons) {
 
-        for (int i = 0; i < persons.length; i++) {
-            if(persons[i].age >= 40) {
-                persons[i].printPerson();
-            }
-        }
-    }
 }
