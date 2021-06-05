@@ -15,7 +15,7 @@ public class PersonDemo {
 
             for (int i = 0; i < persons.length; i++) {
                 if(persons[i].getAge() >= 40) {
-                    persons[i].printPerson();
+                    System.out.println(persons[i]);
                 }
             }
     }

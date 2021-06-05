@@ -23,4 +23,15 @@ public class Employee {
         System.out.printf("Name person: " + fullName  +  "%nPost: " + post + "%nEmail: " + email + "%nTellNumber: " + telNumber + "%nPay: " + pay + "%nAge: " + age + "%n");
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "fullName='" + fullName + '\'' +
+                ", post='" + post + '\'' +
+                ", email='" + email + '\'' +
+                ", telNumber=" + telNumber +
+                ", pay=" + pay +
+                ", age=" + age +
+                '}';
+    }
 }
