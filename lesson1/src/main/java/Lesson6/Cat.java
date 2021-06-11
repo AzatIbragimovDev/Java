@@ -1,16 +1,20 @@
 package Lesson6;
 
 public class Cat extends Animal {
+    public Cat(int runDistance, int swimDistance) {
+        super(runDistance,0);
+    }
 
-    public Cat(int distance, int swim) {
-        super(distance, swim);
-    }
+
     @Override
-    public void run() {
-        System.out.printf("The catBarsik is runing %s%n", getDistance());
+    public void run(int distance) {
+        System.out.println("Cat run distance: " + (distance <= getRunDistance()));
     }
+
     @Override
-    public void swim() {
-        System.out.println("The Cat is can't swim");
+    public void swim(int distance) {
+        System.out.println("Cat can't swim");
+
     }
+
 }

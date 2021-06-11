@@ -3,21 +3,19 @@ package Lesson6;
 
 public class Main {
     public static void main(String[] args) {
-        Animal[] animals = {
-                new Animal(100, 30),
-                new Dog(500, 10),
-                new Cat(200, 0),
+        Animal[]animals = {
+                new Dog(500, 100),
+                new Cat(300, 0)
+
         };
-        movingAnimals(animals);
-
+        goAnimals(animals);
     }
+       public static void goAnimals(Animal[] animals) {
+           for (int i = 0; i < animals.length; i++) {
+               animals[i].run(500);
+               animals[i].swim(100);
 
-    static void movingAnimals(Animal[] animals) {
-        for (int i = 0; i < animals.length; i++) {
-            animals[i].run();
-            animals[i].swim();
-        }
-        System.out.println("Sum of animals is: " + animals.length);
-    }
+           }
+       }
 }
 

@@ -1,26 +1,22 @@
 package Lesson6;
 
-public class Animal {
-    private int distance;
-    private int swim;
-    public Animal(int distance, int swim) {
-        this.distance = distance;
-        this.swim = swim;
+public abstract class Animal {
+   private final int runDistance;
+   private final int swimDistance;
 
-    }
 
-    public  int getDistance() {
-        return distance;
-    }
-    public  int getSwim() {
-        return swim;
-    }
-    public void run() {
-        System.out.printf("The animal is runing %s metrs %n", distance);
-    }
 
-    public  void swim() {
-        System.out.printf("The animal is swim %s metrs %n", swim);
-    }
+   public abstract void run(int distance);
+   public abstract void swim(int distance);
+   public Animal(int runDistance, int swimDistance) {
+      this.runDistance = runDistance;
+      this.swimDistance = swimDistance;
+   }
+   public int getRunDistance() {
+      return runDistance;
+   }
+   public int getSwimDistance() {
+      return swimDistance;
+   }
 
 }
